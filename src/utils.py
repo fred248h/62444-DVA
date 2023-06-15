@@ -29,6 +29,27 @@ def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel):
     # Show the plot
     plt.show()
 
+def create_scatterplot2(df1, df2, x_col, y_col, title, xlabel, ylabel):
+    # Scatter plot for yellow taxis
+    plt.scatter(df1[x_col], df1[y_col], color='yellow', label='Yellow Taxis')
+    
+    # Scatter plot for green taxis
+    plt.scatter(df2[x_col], df2[y_col], color='green', label='Green Taxis')
+
+    # Adding labels and a legend
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.legend()
+    
+    # Linear regression line for yellow taxis
+    sns.regplot(x=df1[x_col], y=df1[y_col], scatter=False, color='yellow')
+
+    # Linear regression line for green taxis
+    sns.regplot(x=df2[x_col], y=df2[y_col], scatter=False, color='green')
+    
+    # Displaying the scatter plot
+    plt.show()
 
 def get_a_random_chunk_property(data):
     """

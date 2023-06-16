@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel):
+def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel,color):
     """
     This function creates a scatter plot with a linear regression line from a DataFrame.
 
@@ -19,7 +19,7 @@ def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel):
 
     # Create the plot
     plt.figure(figsize=(7, 7))
-    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3})
+    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3}, color=color)
 
     # Add labels and title
     plt.title(title)

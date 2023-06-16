@@ -29,30 +29,6 @@ def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel):
     # Show the plot
     plt.show()
 
-def create_scatterplot1(df, x_col, y_col, title, xlabel, ylabel):
-    """
-    This function creates a scatter plot with a linear regression line from a DataFrame.
-
-    Parameters:
-    df (pandas.DataFrame): The DataFrame containing the data.
-    x_col (str): The column in the DataFrame to use for the x-axis.
-    y_col (str): The column in the DataFrame to use for the y-axis.
-    title (str): The title of the plot.
-    xlabel (str): The label for the x-axis.
-    ylabel (str): The label for the y-axis.
-    """
-
-    # Create the plot
-    plt.figure(figsize=(7, 7))
-    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3})
-
-    # Add labels and title
-    plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-
-    # Show the plot
-    plt.show()
 
 def get_a_random_chunk_property(data):
     """

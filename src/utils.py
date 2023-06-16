@@ -4,30 +4,28 @@ import numpy as np
 import pandas as pd
 
 
-def create_scatterplot(df, x_col, y_col, title, xlabel, ylabel,color):
+def create_scatterplot(ax, df, *, x_col, y_col, title, xlabel, ylabel, color):
     """
     This function creates a scatter plot with a linear regression line from a DataFrame.
 
     Parameters:
+    ax (matplotlib.axes.Axes): The Axes object to plot on.
     df (pandas.DataFrame): The DataFrame containing the data.
     x_col (str): The column in the DataFrame to use for the x-axis.
     y_col (str): The column in the DataFrame to use for the y-axis.
     title (str): The title of the plot.
     xlabel (str): The label for the x-axis.
     ylabel (str): The label for the y-axis.
+    color (str): The color of the scatter plot points.
     """
 
     # Create the plot
-    plt.figure(figsize=(7, 7))
-    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3}, color=color)
+    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3}, color=color, ax=ax)
 
     # Add labels and title
-    plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-
-    # Show the plot
-    plt.show()
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
 
 def create_scatterplot2(df1, df2, x_col, y_col, title, xlabel, ylabel):
     # Scatter plot for yellow taxis
@@ -49,6 +47,31 @@ def create_scatterplot2(df1, df2, x_col, y_col, title, xlabel, ylabel):
     sns.regplot(x=df2[x_col], y=df2[y_col], scatter=False, color='green')
     
     # Displaying the scatter plot
+    plt.show()
+    
+def create_scatterplot1(df, x_col, y_col, title, xlabel, ylabel):
+    """
+    This function creates a scatter plot with a linear regression line from a DataFrame.
+
+    Parameters:
+    df (pandas.DataFrame): The DataFrame containing the data.
+    x_col (str): The column in the DataFrame to use for the x-axis.
+    y_col (str): The column in the DataFrame to use for the y-axis.
+    title (str): The title of the plot.
+    xlabel (str): The label for the x-axis.
+    ylabel (str): The label for the y-axis.
+    """
+
+    # Create the plot
+    plt.figure(figsize=(7, 7))
+    sns.regplot(x=df[x_col], y=df[y_col], scatter_kws={"alpha": 0.3})
+
+    # Add labels and title
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+
+    # Show the plot
     plt.show()
 
 def get_a_random_chunk_property(data):

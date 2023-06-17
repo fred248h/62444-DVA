@@ -42,20 +42,27 @@ def json_to_dataframe(df_data, data, dates_contained_in_data):
 
     index1, index2 = 0,0
     for date in dates_contained_in_data:
+        # Calculate the index week number
         week = math.floor(index1/8)
+        # All the NEO's for one day
         data_list = data[week]["near_earth_objects"][date]
         index1 += 1
 
+        #Loop over the number of NEO's
         for i in range(0,len(data_list)):
             index2 +=1
-            dict_list = list(data_list[i].keys())
 
             #Generate new id 
             Id = str(index1)+str(index2)
 
+            # Get all keys from the dictionary
+            dict_list = list(data_list[i].keys())
+
+            # Save date and week number to the dataframe
             df_data.loc[Id,"date"] = date
             df_data.loc[Id,"week"] = week
             
+            # loop over he dictionary keys
             for first_dict in dict_list:
                 if first_dict in ['close_approach_data', 'estimated_diameter']:
             
@@ -74,5 +81,6 @@ def json_to_dataframe(df_data, data, dates_contained_in_data):
                             df_data.loc[Id, str(new_dict)] = new_data_list[new_dict]
                 else:
                     if not first_dict =='links':
+                        # Save data to dataframe
                         df_data.loc[Id, str(first_dict)] = data_list[i][first_dict]
         

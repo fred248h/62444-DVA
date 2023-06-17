@@ -125,23 +125,4 @@ def print_payment_type_distribution(df, title):
         print(f"{payment_type}: {count_str}")
 
 
-
-def plot_histogram(df_yellow, df_green, column_name, title, xlabel, ylabel, color_yellow, color_green):
-    fig, axes = plt.subplots(1, 2, figsize=(12, 6))
-
-    # Plot histogram for df_yellow
-    axes[0].hist(df_yellow[column_name], bins=12, color=color_yellow, edgecolor='black')
-    axes[0].set_xlabel(xlabel)
-    axes[0].set_ylabel(ylabel)
-    axes[0].set_title(title + ' (Yellow Taxi)')
-    axes[0].yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
-
-    # Plot histogram for df_green
-    axes[1].hist(df_green[column_name], bins=12, color=color_green, edgecolor='black')
-    axes[1].set_xlabel(xlabel)
-    axes[1].set_ylabel(ylabel)
-    axes[1].set_title(title + ' (Green Taxi)')
-    axes[1].yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
-
-    plt.tight_layout()
-    plt.show()
+    

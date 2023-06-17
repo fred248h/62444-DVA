@@ -49,6 +49,8 @@ def create_scatterplot2(df1, df2, x_col, y_col, title, xlabel, ylabel):
     # Displaying the scatter plot
     plt.show()
     
+    
+    
 def create_scatterplot1(df, x_col, y_col, title, xlabel, ylabel):
     """
     This function creates a scatter plot with a linear regression line from a DataFrame.
@@ -105,3 +107,28 @@ def load_data_from_google_drive(url):
     url_processed='https://drive.google.com/uc?id=' + url.split('/')[-2]
     df = pd.read_csv(url_processed)
     return df
+
+
+def print_passenger_count_distribution(df, title):
+    print(title)
+    passenger_counts = df['passenger_count'].value_counts().sort_index()
+    for count in range(1, 10):
+        count_str = "{:,}".format(passenger_counts.get(count, 0))
+        print(f"{count}: {count_str}")
+
+def print_payment_type_distribution(df, title):
+    print(title)
+    payment_counts = df['payment_type'].value_counts()
+    for payment_type, count in payment_counts.items():
+        count_str = "{:,}".format(count)
+        print(f"{payment_type}: {count_str}")
+
+
+def plot_histogram(df, column_name, title, xlabel, ylabel, color):
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.hist(df[column_name], bins=12, color=color, edgecolor='black')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
+    plt.show()

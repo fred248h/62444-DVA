@@ -73,6 +73,7 @@ def json_to_dataframe(df_data, data, dates_contained_in_data):
                     
                     for new_dict in new_dict_list:
                         try:
+                            # Check if it is a dictionary
                             if isinstance(new_data_list[new_dict].keys(), type(new_data_list.keys()))==True:
                                 end_dict_list = list(new_data_list[new_dict].keys())
                                 for end_dict in end_dict_list:
@@ -83,4 +84,4 @@ def json_to_dataframe(df_data, data, dates_contained_in_data):
                     if not first_dict =='links':
                         # Save data to dataframe
                         df_data.loc[Id, str(first_dict)] = data_list[i][first_dict]
-        
+    return    

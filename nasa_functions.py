@@ -29,6 +29,13 @@ def get_data(api_key, start_date, end_date):
 
 
 
+"""
+jsonString = json.dumps(data)
+jsonFile = open("data.json", "w")
+jsonFile.write(jsonString)
+jsonFile.close()
+"""
+
 
 def json_to_dataframe(df_data, data, dates_contained_in_data):
     ############# Input ################

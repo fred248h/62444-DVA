@@ -29,14 +29,6 @@ def get_data(api_key, start_date, end_date):
 
 
 
-"""
-jsonString = json.dumps(data)
-jsonFile = open("data.json", "w")
-jsonFile.write(jsonString)
-jsonFile.close()
-"""
-
-
 def json_to_dataframe(df_data, data, dates_contained_in_data):
     ############# Input ################
     # df_data: pandas dataframe
@@ -69,7 +61,7 @@ def json_to_dataframe(df_data, data, dates_contained_in_data):
             df_data.loc[Id,"date"] = date
             df_data.loc[Id,"week"] = week
             
-            # loop over he dictionary keys
+            # loop over the dictionary keys
             for first_dict in dict_list:
                 if first_dict in ['close_approach_data', 'estimated_diameter']:
             
